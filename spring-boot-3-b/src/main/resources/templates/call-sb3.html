@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot 3 b - Distributed Tracing Demo</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+</head>
+<body>
+<div class="container">
+    <h1>Spring Boot 3 b - Distributed Tracing Demo</h1>
+    <h2>Calling API for Spring Boot 3.x</h2>
+
+    <div class="inner-container">
+        <h3>This application</h3>
+        <div class="trace-info">
+            <h4>Tracing Ids from MDC</h4>
+            <ul>
+                <li><strong>TraceId:</strong></li>
+                <li class="trace-value" th:text="${traceId}"></li>
+                <li><strong>SpanId:</strong></li>
+                <li class="trace-value" th:text="${spanId}"></li>
+            </ul>
+        </div>
+        <h4>Request Headers</h4>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+            <tr th:each="header : ${headers}">
+                <td th:text="${header.key}"></td>
+                <td th:text="${header.value}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="inner-container">
+        <h3>Remote application</h3>
+        <div>See logs in remote application</div>
+    </div>
+
+    <a href="/" class="button">HOME</a>
+</div>
+</body>
+</html>
